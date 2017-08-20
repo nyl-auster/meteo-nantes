@@ -1,6 +1,6 @@
 const express = require('express')
 const next = require('next')
-const api = require('./api')
+const MeteoApi = require('./MeteoApi')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -9,9 +9,10 @@ const handle = app.getRequestHandler()
 app.prepare()
   .then(() => {
     const server = express()
-
+   
+    // proxy to call darksky api from client
     server.get('/meteo', function (req, res) {
-      return api.getMeteo().then(r => {
+      return MeteoApi.getMeteo().then(r => {
         res.json(r)
       })
     })
@@ -29,3 +30,4 @@ app.prepare()
     console.error(ex.stack)
     process.exit(1)
   })
+  
