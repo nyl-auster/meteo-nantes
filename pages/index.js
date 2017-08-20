@@ -1,7 +1,4 @@
-
 import Layout from '../components/Layout'
-import { getNextHour } from '../api'
-console.log(getNextHour())
 
 const Index = () => (
   <Layout>
