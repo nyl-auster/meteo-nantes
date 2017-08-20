@@ -4,6 +4,7 @@
 const axios = require('axios')
 
 module.exports.getMeteo = async () => {
-  const result = await axios.get('http://localhost:3000/meteo')
+  const result = await axios.get('http://localhost:3000/api/meteo')
   return result.data
 }
+

@@ -2,10 +2,10 @@ import Layout from '../components/Layout'
 import Weather from '../components/Weather'
 import { getMeteo } from '../MeteoProxyApi'
 
-const Index = (props) => (
+const Index = ({meteo}) => (
   <Layout>
     <div>
-      <Weather />
+      <Weather meteo={meteo} />
       <p>Hello Next.js</p>
     </div>
   </Layout>
@@ -15,7 +15,7 @@ Index.getInitialProps = async function() {
   const meteo = await getMeteo()
   console.log(meteo)
   return {
-    meteo: 'hello'
+    meteo
   }
 }
 

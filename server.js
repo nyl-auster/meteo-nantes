@@ -9,9 +9,9 @@ const handle = app.getRequestHandler()
 app.prepare()
   .then(() => {
     const server = express()
-   
-    // proxy to call darksky api from client
-    server.get('/meteo', function (req, res) {
+
+    // proxy to call darksky api and keep apikey server-side only
+    server.get('/api/meteo', function (req, res) {
       return MeteoApi.getMeteo().then(r => {
         res.json(r)
       })
@@ -30,4 +30,3 @@ app.prepare()
     console.error(ex.stack)
     process.exit(1)
   })
-  
