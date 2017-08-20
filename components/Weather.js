@@ -13,7 +13,7 @@ const Weather = ({ meteo }) => {
 
       <div className="column">
         <div className="content">
-          <h2>Time :  {meteo[0].time} </h2>
+          <h2>Time :  {meteo[0].reactTime}h </h2>
           Temperature : {meteo[0].apparentTemperature} <br />
           Probabilité de précipitation : {meteo[0].precipProbability} <br />
           Intensité de la précipitation : {meteo[0].precipIntensity} <br />
@@ -28,10 +28,10 @@ const Weather = ({ meteo }) => {
 
       <div className="column">
         <div className="content">
-          <h2>Time :  {meteo[1].time} </h2>
+          <h2>Time :  {meteo[1].reactTime}h </h2>
           Temperature : {meteo[1].apparentTemperature} <br />
-          Probabilité de précipitation : {meteo[0].precipProbability} <br />
-          Intensité de la précipitation : {meteo[0].precipIntensity} <br />
+          Probabilité de précipitation : {meteo[1].precipProbability} <br />
+          Intensité de la précipitation : {meteo[1].precipIntensity} <br />
           <ReactAnimatedWeather
             icon={meteo[1].reactIcon}
             color={defaults.color}
