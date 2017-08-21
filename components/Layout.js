@@ -1,15 +1,18 @@
 import Header from './Header'
+import Clock from './Clock'
 import Head from 'next/head'
 import Navigation from './Navigation'
 import Footer from './Footer'
 
 const Layout = ({ children }) => (
-  <div>
+  <div className="container">
     <Head>
       <link rel="stylesheet" type="text/css" href="/static/bulma-5.1.css" />
     </Head>
     <Header />
-    <Navigation />
+    <div className="has-text-centered">
+      <Clock />
+    </div>
     {children}
   </div>
 )
