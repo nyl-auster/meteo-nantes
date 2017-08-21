@@ -2,7 +2,6 @@
  * Request Darksky server api
  */
 const axios = require('axios')
-const moment = require('moment')
 
 // 43.075284,1.3310 for Nantes
 const position = '43.075284,1.3310'
@@ -20,9 +19,8 @@ module.exports.getMeteo = async () => {
   let data = result.data.hourly.data.slice(0, 2)
   data = data.map(item => {
     item.reactIcon = item.icon.replace('-', '_').toUpperCase()
-    item.reactTime = moment.unix(item.time).format('H')
     return item
-  })  
+  })
   console.log(data)
   return data
 }
