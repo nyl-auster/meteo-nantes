@@ -1,9 +1,9 @@
 import ReactAnimatedWeather from '../components/ReactAnimatedWeather'
+import { round } from 'lodash'
 import moment from 'moment'
 moment.locale('fr')
 
 const defaults = {
-  icon: 'CLEAR_NIGHT',
   color: 'goldenrod',
   size: 256,
   animate: true
@@ -25,8 +25,7 @@ const Button = ({ precipProbability }) => {
   )
 }
 
-const ReadableTime = ({unixtime}) => {
-  console.log(unixtime)
+const ReadableTime = ({ unixtime }) => {
   let hour = moment.unix(unixtime).format('H')
   const nextHour = hour == '23' ? '00' : String((parseInt(hour) + 1))
   return (
@@ -34,30 +33,23 @@ const ReadableTime = ({unixtime}) => {
   )
 }
 
-const precipIntensity = ({precipIntensity}) => (
-  <div>
-    Intensité de la précipitation : {precipIntensity} <br />
-  </div>
-)
-
 const WeatherHour = ({ meteo }) => {
-  const precipIntensity = meteo.precipProbability > 0 ? <precipIntensity precipIntensity={meteo.precipIntensity} /> : ''
   return (
     <div className="content section">
       <h2> <ReadableTime unixtime={meteo.time} /> </h2>
       <Button precipProbability={meteo.precipProbability} />
-      <h2>Probabilité de précipitation : {meteo.precipProbability} </h2>
-      <h2> {precipIntensity} </h2>
-      <h2> Temperature : {meteo.apparentTemperature} </h2>
-
+      <h2>Probabilité de précipitation: {round(meteo.precipProbability * 100)}% </h2>
+      <h2>Intensité de la précipitation: {round(meteo.precipIntensity * 100)}%</h2>
       <div className="section">
         <ReactAnimatedWeather
           icon={meteo.reactIcon}
-          color={defaults.color}
-          size={defaults.size}
-          animate={defaults.animate}
+          color="goldenrod"
+          size={256}
+          animate={true}
         />
       </div>
+      <h2>Température: {meteo.temperature} degrés</h2>
+      <h2>Humidité: {round(meteo.humidity * 100)} </h2>
     </div>
   )
 }
