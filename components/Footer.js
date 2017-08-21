@@ -1,5 +1,5 @@
 const footer = () => {
   <div className="footer">
-    I am the footer
+    By <a href="https://yineo.fr">Yineo.fr</a>
   </div>
 }

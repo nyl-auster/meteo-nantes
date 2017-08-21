@@ -22,8 +22,7 @@ module.exports.getMeteo = async () => {
     item.reactIcon = item.icon.replace('-', '_').toUpperCase()
     item.reactTime = moment.unix(item.time).format('H')
     return item
-  })
-
+  })  
   console.log(data)
   return data
 }
