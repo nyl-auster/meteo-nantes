@@ -5,7 +5,7 @@ import moment from 'moment'
  */
 const Clock = () => (
   <div>
-    <h2 className="section title is-2">mis à jour à {moment().format('H[h]mm')}</h2>
+    <h2 className="title is-2"><em>mis à jour à {moment().format('H[h]mm')}</em></h2>
     <style jsx>{`
       .button {
         padding:2rem

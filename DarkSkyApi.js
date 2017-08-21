@@ -21,7 +21,6 @@ module.exports.getMeteo = async () => {
     item.reactIcon = item.icon.replace('-', '_').toUpperCase()
     return item
   })
-  console.log(data)
   return data
 }
 

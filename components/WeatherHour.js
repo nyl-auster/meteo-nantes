@@ -49,7 +49,7 @@ const WeatherHour = ({ meteo }) => {
         />
       </div>
       <h2>Température: {meteo.temperature} degrés</h2>
-      <h2>Humidité: {round(meteo.humidity * 100)} </h2>
+      <h2>Humidité: {round(meteo.humidity * 100)}% </h2>
     </div>
   )
 }
