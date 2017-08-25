@@ -3,14 +3,30 @@ import { round } from 'lodash'
 import moment from 'moment'
 moment.locale('fr')
 
-const YesNo = ({ precipProbability }) => {
-  const YesNoText = precipProbability > 0 ? 'oui' : 'non'
-  const YesNoClass = precipProbability > 0 ? 'yesno is-danger' : 'yesno is-success'
+const WillItRain = ({ precipProbability }) => {
+  let WillItRainText = ''
+  let WillItRainClass = ''
+  if (precipProbability === 0) {
+    WillItRainText = 'Non'
+    WillItRainClass = 'no' 
+  }
+  if (precipProbability > 0 && precipProbability < 50) {
+    WillItRainText = 'Peut-être'
+    WillItRainClass = 'maybe' 
+  }
+  if (precipProbability >= 50 && precipProbability < 90) {
+    WillItRainText = 'Sûrement'
+    WillItRainClass = 'surely' 
+  }
+  if (precipProbability >= 90) {
+    WillItRainText = 'oui'
+    WillItRainClass = 'yes' 
+  }
   return (
     <div>
-      <span className={YesNoClass}>{YesNoText}</span>
+      <span className={`will-it-rain ${WillItRainClass}`}>{WillItRainText}</span>
       <style jsx>{`
-      .yesno {
+      .will-it-rain {
         display:inline-block;
         border-radius: 0.5rem;
         color:white;
@@ -18,10 +34,16 @@ const YesNo = ({ precipProbability }) => {
         font-size: 3rem;
         text-transform: uppercase
       }
-      .yesno.is-success{
+      .will-it-rain.no{
         background: #23d160;
       }
-      .yesno.is-danger{
+      .will-it-rain.maybe{
+        background: #3273dc;
+      }
+      .will-it-rain.surely{
+        background: #ffdd57;
+      }
+      .will-it-rain.yes{
         background: #ff3860;
       }
     `}</style>
@@ -41,7 +63,7 @@ const WeatherHour = ({ meteo }) => {
   return (
     <div className="content section">
       <h2> <ReadableTime unixtime={meteo.time} /> </h2>
-      <YesNo precipProbability={meteo.precipProbability} />
+      <WillItRain precipProbability={meteo.precipProbability} />
       <h2>Probabilité de précipitation: {round(meteo.precipProbability * 100)}% </h2>
       <h2>Intensité de la précipitation: {round(meteo.precipIntensity * 100)}%</h2>
       <div className="section">
