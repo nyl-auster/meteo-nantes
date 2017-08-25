@@ -1,7 +1,6 @@
 import Header from './Header'
 import Head from 'next/head'
 import Navigation from './Navigation'
-import Footer from './Footer'
 
 const Layout = ({ children }) => (
   <div>
