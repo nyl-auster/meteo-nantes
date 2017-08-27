@@ -1,4 +1,4 @@
-import ReactAnimatedWeather from '../components/ReactAnimatedWeather'
+import ReactAnimatedWeather from 'react-animated-weather'
 import { round } from 'lodash'
 import moment from 'moment'
 moment.locale('fr')
@@ -68,7 +68,7 @@ const WeatherHour = ({ meteo }) => {
       <h2>Intensité de la précipitation: {round(meteo.precipIntensity * 100)}%</h2>
       <div className="section">
         <ReactAnimatedWeather
-          icon={meteo.reactIcon}
+          icon={meteo.reactIcon.replace('-', '_')}
           color="goldenrod"
           size={256}
           animate={true}
