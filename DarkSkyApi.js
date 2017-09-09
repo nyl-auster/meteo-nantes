@@ -4,7 +4,7 @@
 const axios = require('axios')
 
 // 43.075284,1.3310 for Nantes
-const position = '43.075284,1.3310'
+const position = '47.2172500,-1.5533600'
 const apiKey = 'bbdbf0021f436aab92f30921960627d5'
 const lang = 'fr'
 
