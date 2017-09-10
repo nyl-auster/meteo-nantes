@@ -10,6 +10,7 @@ const Layout = ({ children }) => {
         <link rel="stylesheet" type="text/css" href="/static/bulma-5.1.css" />
 
         {/*PWA*/}
+        <link rel="manifest" href="/static/manifest.json" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="application-name" content="Va-t-il pleuvoir ?" />
