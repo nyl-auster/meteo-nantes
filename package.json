@@ -19,5 +19,8 @@
     "react": "15.6.1",
     "react-animated-weather": "1.0.3",
     "react-dom": "15.6.1"
+  },
+  "devDependencies": {
+    "sw-precache-webpack-plugin": "^0.11.4"
   }
 }

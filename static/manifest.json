@@ -1,0 +1,13 @@
+{
+  "name": "Va-t-il pleuvoir ?",
+  "short_name": "Va-t-il pleuvoir ?",
+  "lang": "fr",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/static/images/icon.svg",
+      "type": "image/svg"
+    }
+  ]
+}
